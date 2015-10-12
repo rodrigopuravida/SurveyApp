@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48F3328E1BC8404700F23D08 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F3328D1BC8404700F23D08 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
+		48F332901BCB79E500F23D08 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F3328F1BCB79E500F23D08 /* DataManager.swift */; settings = {ASSET_TAGS = (); }; };
+		48F332921BCB7A0600F23D08 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F332911BCB7A0600F23D08 /* AppModel.swift */; settings = {ASSET_TAGS = (); }; };
 		EE7E9AC41BBA734900391478 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E9AC31BBA734900391478 /* AppDelegate.swift */; };
 		EE7E9AC61BBA734900391478 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E9AC51BBA734900391478 /* ViewController.swift */; };
 		EE7E9AC91BBA734900391478 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE7E9AC71BBA734900391478 /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		48F3328D1BC8404700F23D08 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		48F3328F1BCB79E500F23D08 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = ../DataManager.swift; sourceTree = "<group>"; };
+		48F332911BCB7A0600F23D08 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		EE7E9ABE1BBA734900391478 /* Topcoder-FunSeries-SurveyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Topcoder-FunSeries-SurveyApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE7E9AC21BBA734900391478 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7E9AC31BBA734900391478 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +85,10 @@
 		EE7E9AC01BBA734900391478 /* Topcoder-FunSeries-SurveyApp */ = {
 			isa = PBXGroup;
 			children = (
+				48F332911BCB7A0600F23D08 /* AppModel.swift */,
+				48F3328F1BCB79E500F23D08 /* DataManager.swift */,
 				EE7E9AC31BBA734900391478 /* AppDelegate.swift */,
+				48F3328D1BC8404700F23D08 /* SwiftyJSON.swift */,
 				EE7E9AC51BBA734900391478 /* ViewController.swift */,
 				EE7E9AC71BBA734900391478 /* Main.storyboard */,
 				EE7E9ACA1BBA734900391478 /* Images.xcassets */,
@@ -159,6 +168,7 @@
 		EE7E9AB61BBA734900391478 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = topcoder;
 				TargetAttributes = {
@@ -216,7 +226,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48F3328E1BC8404700F23D08 /* SwiftyJSON.swift in Sources */,
+				48F332901BCB79E500F23D08 /* DataManager.swift in Sources */,
 				EE7E9AC61BBA734900391478 /* ViewController.swift in Sources */,
+				48F332921BCB7A0600F23D08 /* AppModel.swift in Sources */,
 				EE7E9AC41BBA734900391478 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +426,7 @@
 				EE7E9ADF1BBA734900391478 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EE7E9AE01BBA734900391478 /* Build configuration list for PBXNativeTarget "Topcoder-FunSeries-SurveyAppTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +435,7 @@
 				EE7E9AE21BBA734900391478 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

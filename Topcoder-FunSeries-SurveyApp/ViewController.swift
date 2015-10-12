@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     
@@ -54,7 +55,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(SurveyTable: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
             
-            var cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as! UITableViewCell
+            var cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as! UITableViewCell!
             cell.textLabel!.text = tableData[indexPath.row] as? String
             return cell
     }
