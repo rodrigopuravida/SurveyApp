@@ -66,7 +66,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                 //print(self.tableData)
                 
             }
+            dispatch_async(dispatch_get_main_queue()) {
             self.SurveyTable.reloadData()
+            }
         }
         
         
@@ -95,10 +97,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                 
             var cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as UITableViewCell!
 //
-//            cell.textLabel!.text = tableData[indexPath.row] as? String
-            
-            cell.textLabel!.text = "Test"
-            
+            cell.textLabel!.text = tableData[indexPath.row] as? String
             
             
             return cell
