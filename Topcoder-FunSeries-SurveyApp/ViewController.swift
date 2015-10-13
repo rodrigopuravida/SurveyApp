@@ -10,12 +10,13 @@ import UIKit
 
 
 
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate {
     
     
     var dataArray:NSMutableArray!
     var plistPath:String!
     var tableData=[String]()
+    var filteredList = [String]()
     
     @IBOutlet var Label: UILabel!
     @IBOutlet var SurveyTable: UITableView!
@@ -59,8 +60,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     func tableView(SurveyTable: UITableView, numberOfRowsInSection section: Int) -> Int {
-                print (tableData.count)
-                return tableData.count
+        
+       
+        if SurveyTable == self.searchDisplayController!.searchResultsTableView {
+            return self.filteredList.count
+        } else {
+            return tableData.count
+        }
+        
     }
     
     func tableView(SurveyTable: UITableView,
@@ -68,13 +75,42 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
             
             
             let cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as UITableViewCell!
-            cell.textLabel!.text = tableData[indexPath.row]
+            
+            var titleName : String!
+            if SurveyTable == self.searchDisplayController!.searchResultsTableView {
+                titleName = self.filteredList[indexPath.row]
+            } else {
+                titleName = tableData[indexPath.row]
+            }
+            
+            
+            
+            cell.textLabel!.text = titleName
             
             
             return cell
            
-            
     }
+    
+    func filterTableViewForEnterText(searchText: String)
+    {
+        self.filteredList = self.tableData.filter({( strTitle : String) -> Bool in
+            let stringForSearch = strTitle.rangeOfString(searchText)
+            return (stringForSearch != nil)
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController, shouldReloadTableForSearchString searchString: String?) -> Bool {
+        self.filterTableViewForEnterText(searchString!)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController,
+        shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+            self.filterTableViewForEnterText(self.searchDisplayController!.searchBar.text!)
+            return true
+    }
+
     
     
     

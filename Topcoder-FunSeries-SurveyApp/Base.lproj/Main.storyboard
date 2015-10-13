@@ -51,13 +51,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGf-nK-HAb">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search Here ..." translatesAutoresizingMaskIntoConstraints="NO" id="AGf-nK-HAb">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="5Hz-eO-bOu"/>
                                     <constraint firstAttribute="height" constant="44" id="lfB-Rb-AJb"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Es4-qF-amp"/>
+                                </connections>
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
