@@ -11,9 +11,9 @@ import Foundation
 class AppModel: NSObject {
     let title: String
     
-//    override var description: String {
-//        return "Title: \(title)\n"
-//    }
+    override var description: String {
+        return "Title: \(title)\n"
+    }
     
     init(title: String?) {
         self.title = title ?? ""

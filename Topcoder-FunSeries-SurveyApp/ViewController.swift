@@ -25,15 +25,50 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         SurveyTable.dataSource=self;
         
         // Do any additional setup after loading the view, typically from a nib.
-        if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist"){
-            if let arrayOfDictionaries = NSArray(contentsOfFile: path){
-                for dict in arrayOfDictionaries {
-                    tableData.append(dict.objectForKey("title") as! String)
+//        if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist"){
+//            if let arrayOfDictionaries = NSArray(contentsOfFile: path){
+//                for dict in arrayOfDictionaries {
+//                    tableData.append(dict.objectForKey("title") as! String)
+//                }
+//            }
+//        }
+//        print(tableData);
+//        SurveyTable.reloadData()
+        
+        
+        
+        //here is the network call
+        DataManager.getDataFromMockySiteWithSuccess { (mockydata) -> Void in
+            let json = JSON(data: mockydata)
+//            //        print(json)
+//            if let appName = json["title"][0].string {
+//                print("NSURLSession: \(appName)")
+//            }
+//            // More soon...
+//            //1
+            if let appArray = json.array {
+                //2
+                var apps = [AppModel]()
+                
+                //3
+                for appDict in appArray {
+                    let appTitle: String? = appDict["title"].string
+//
+//                    let app = AppModel(title: appTitle)
+//                    apps.append(app)
+                    self.tableData.append(appTitle!)
+                    
+                    
                 }
+                
+                //4
+                print("I am here")
+                //print(self.tableData)
+                
             }
+            self.SurveyTable.reloadData()
         }
-        print(tableData);
-        SurveyTable.reloadData()
+        
         
     }
     
@@ -49,15 +84,26 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     
     func tableView(SurveyTable: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableData.count
+                print (tableData.count)
+                return tableData.count
     }
     
     func tableView(SurveyTable: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
             
-            var cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as! UITableViewCell!
-            cell.textLabel!.text = tableData[indexPath.row] as? String
+           
+                
+            var cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as UITableViewCell!
+//
+//            cell.textLabel!.text = tableData[indexPath.row] as? String
+            
+            cell.textLabel!.text = "Test"
+            
+            
+            
             return cell
+           
+            
     }
     
     

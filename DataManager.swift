@@ -12,19 +12,19 @@ let TopAppURL = "http://www.mocky.io/v2/560920cc9665b96e1e69bb46"
 
 class DataManager {
     
-    class func getTopAppsDataFromItunesWithSuccess(success: ((iTunesData: NSData!) -> Void)) {
+    class func getDataFromMockySiteWithSuccess(success: ((mockydata: NSData!) -> Void)) {
         //1
         loadDataFromURL(NSURL(string: TopAppURL)!, completion:{(data, error) -> Void in
             //2
             if let urlData = data {
                 //            print(data)
                 //3
-                success(iTunesData: urlData)
+                success(mockydata: urlData)
             }
         })
     }
     
-        
+    
     class func loadDataFromURL(url: NSURL, completion:(data: NSData?, error: NSError?) -> Void) {
         let session = NSURLSession.sharedSession()
         
@@ -35,7 +35,7 @@ class DataManager {
             } else if let httpResponse = response as? NSHTTPURLResponse {
                 print(httpResponse.statusCode)
                 if httpResponse.statusCode != 200 {
-                    let statusError = NSError(domain:"com.raywenderlich", code:httpResponse.statusCode, userInfo:[NSLocalizedDescriptionKey : "HTTP status code has unexpected value."])
+                    let statusError = NSError(domain:"com.rodrigocarballo", code:httpResponse.statusCode, userInfo:[NSLocalizedDescriptionKey : "HTTP status code has unexpected value."])
                     completion(data: nil, error: statusError)
                 } else {
                     
