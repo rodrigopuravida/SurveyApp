@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -40,13 +41,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="FunSeries-SurvayApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFv-QR-TzO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="FunSeries-SurveyApp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aL-n0-vLc">
                                 <rect key="frame" x="0.0" y="5" width="600" height="59"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,16 +51,26 @@
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGf-nK-HAb">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="5Hz-eO-bOu"/>
+                                    <constraint firstAttribute="height" constant="44" id="lfB-Rb-AJb"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Eab-lq-7eB" secondAttribute="bottom" id="0Y2-2V-rqb"/>
-                            <constraint firstItem="Eab-lq-7eB" firstAttribute="top" secondItem="CFv-QR-TzO" secondAttribute="bottom" id="APZ-6p-Cb0"/>
                             <constraint firstAttribute="trailing" secondItem="6aL-n0-vLc" secondAttribute="trailing" id="FCx-kK-CYX"/>
                             <constraint firstItem="6aL-n0-vLc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="LCk-a7-BWZ"/>
                             <constraint firstAttribute="trailing" secondItem="Eab-lq-7eB" secondAttribute="trailing" id="RI9-Qy-AIS"/>
                             <constraint firstItem="Eab-lq-7eB" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="fXn-qP-N7w"/>
+                            <constraint firstItem="AGf-nK-HAb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-20" id="hIy-ZX-CXy"/>
                             <constraint firstItem="6aL-n0-vLc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="pZ8-v2-QmT"/>
+                            <constraint firstItem="AGf-nK-HAb" firstAttribute="top" secondItem="6aL-n0-vLc" secondAttribute="bottom" id="uFi-cD-Shz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AGf-nK-HAb" secondAttribute="trailing" constant="-20" id="vkj-gR-oBy"/>
                         </constraints>
                     </view>
                     <connections>

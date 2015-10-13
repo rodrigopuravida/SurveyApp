@@ -24,53 +24,26 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         SurveyTable.delegate=self;
         SurveyTable.dataSource=self;
         
-        // Do any additional setup after loading the view, typically from a nib.
-//        if let path = NSBundle.mainBundle().pathForResource("data", ofType: "plist"){
-//            if let arrayOfDictionaries = NSArray(contentsOfFile: path){
-//                for dict in arrayOfDictionaries {
-//                    tableData.append(dict.objectForKey("title") as! String)
-//                }
-//            }
-//        }
-//        print(tableData);
-//        SurveyTable.reloadData()
-        
-        
         
         //here is the network call
         DataManager.getDataFromMockySiteWithSuccess { (mockydata) -> Void in
             let json = JSON(data: mockydata)
-//            //        print(json)
-//            if let appName = json["title"][0].string {
-//                print("NSURLSession: \(appName)")
-//            }
-//            // More soon...
-//            //1
             if let appArray = json.array {
-                //2
-                var apps = [AppModel]()
                 
-                //3
+                var apps = [AppModel]()
+        
                 for appDict in appArray {
                     let appTitle: String? = appDict["title"].string
-//
-//                    let app = AppModel(title: appTitle)
-//                    apps.append(app)
+
                     self.tableData.append(appTitle!)
                     
-                    
                 }
-                
-                //4
-                print("I am here")
-                //print(self.tableData)
                 
             }
             dispatch_async(dispatch_get_main_queue()) {
             self.SurveyTable.reloadData()
             }
         }
-        
         
     }
     
@@ -93,11 +66,9 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func tableView(SurveyTable: UITableView,
         cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
             
-           
-                
-            var cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as UITableViewCell!
-//
-            cell.textLabel!.text = tableData[indexPath.row] as? String
+            
+            let cell:UITableViewCell = SurveyTable.dequeueReusableCellWithIdentifier("cell")as UITableViewCell!
+            cell.textLabel!.text = tableData[indexPath.row]
             
             
             return cell
